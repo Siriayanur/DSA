@@ -40,6 +40,6 @@ int main()
             x = x + k;
         }
         cout << minAmount << " " << maxAmount << endl;
-    }
+        }
     return 0;
 }
