@@ -70,5 +70,6 @@
         "random": "cpp",
         "set": "cpp",
         "string": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
