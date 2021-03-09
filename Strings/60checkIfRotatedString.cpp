@@ -79,6 +79,10 @@ int main()
     string s2 = "badc";
     string s3 = "cdab";
 
+    if (s1.length() != s2.length())
+    {
+        cout << "NO";
+    }
     if (isReversed(s1, s2))
     {
         cout << "YES" << endl;
