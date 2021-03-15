@@ -3,39 +3,23 @@
 #include <algorithm>
 using namespace std;
 
+//Correct answer
 int getMinDiff(int a[], int n, int k)
 {
-    // code here
     sort(a, a + n);
-    int start = a[0] = a[0] + k;
-    int end = a[n - 1] = a[n - 1] - k;
+    int minEl, maxEl;
+    int result = a[n - 1] - a[0];
 
-    int range = a[n - 1] - a[0];
-
-    if (start > end)
+    for (int i = 1; i < n; i++)
     {
-        swap(start, end);
-    }
-
-    for (int i = 1; i < n - 1; i++)
-    {
-        int currentStart = a[i] - k;
-        int currentEnd = a[i] + k;
-        if (currentStart >= start || currentEnd <= end)
+        if (a[i] >= k)
         {
-            continue;
-        }
-
-        if (currentEnd - start <= end - currentStart)
-        {
-            start = currentStart;
-        }
-        else
-        {
-            end = currentEnd;
+            maxEl = max(a[i - 1] + k, a[n - 1] - k);
+            minEl = min(a[0] + k, a[i] - k);
+            result = min(result, maxEl - minEl);
         }
     }
-    return min(range, end - start);
+    return result;
 }
 int main()
 {
