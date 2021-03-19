@@ -35,12 +35,7 @@ string secFrequent(string arr[], int n)
 
 int main()
 {
-    vector<string> a(6);
-    for (int i = 0; i < 6; i++)
-    {
-        string in;
-        cin >> in;
-        a.push_back(in);
-    }
-    cout << secFrequent(a, 6) << endl;
+    string arr[] = {"aaa", "aaa", "aaa", "bbb", "ccc", "bbb"};
+    cout << secFrequent(arr, 6) << endl;
+    return 0;
 }
