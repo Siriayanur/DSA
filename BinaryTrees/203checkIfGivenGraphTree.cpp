@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-class Node
-{
-public:
-    int data;
-    Node *left;
-    Node *right;
-};
-
 bool isCycle(int **graph, int v, int parent, bool *visited)
 {
     visited[v] = true;
