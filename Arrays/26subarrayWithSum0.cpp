@@ -7,13 +7,30 @@ using namespace std;
 bool subArrayExists(int a[], int n)
 {
     //Your code here
+    /**
+     * n --> total elements
+     * 4 2 -3 1 6
+     * sum = 4
+     *  
+     * if(sum == 0)
+     *  map :
+     * 0 - 1 
+     * 4 - 1
+     * 6 - 1
+     * 3 - 1
+     * return true
+     */
+
     if (n == 2)
     {
         return (a[0] + a[1] == 0);
     }
     unordered_map<int, int> ourmap;
     int currentSum = 0;
+
+    //This entry is made to make sure to handle cases when 0 is itself the element
     ourmap[0] = 1;
+
     for (int i = 0; i < n; i++)
     {
 

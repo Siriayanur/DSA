@@ -35,16 +35,16 @@ int kthSmallest2(int arr[], int l, int r, int k)
 {
     int m = rand() % (r - l + 1);
     swap(arr[l + m], arr[r]);
-    int ind = partition(arr, l, r);
-    if (ind - l + 1 == k)
+    int index = partition(arr, l, r);
+    if (index - l + 1 == k)
     {
-        return arr[ind];
+        return arr[index];
     }
-    if (ind - l + 1 > k)
+    if (index - l + 1 > k)
     {
-        return kthSmallest2(arr, l, ind - 1, k);
+        return kthSmallest2(arr, l, index - 1, k);
     }
-    return kthSmallest2(arr, ind + 1, r, k - (ind - l + 1));
+    return kthSmallest2(arr, index + 1, r, k - (index - l + 1));
 }
 int main()
 {

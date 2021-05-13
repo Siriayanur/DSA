@@ -46,3 +46,41 @@ int trappingRainWaterBetter(int a[], int n)
     }
     return result;
 }
+
+//o(n) , o(1)
+int trappingRainWater3(int a[], int n)
+{
+    int l = 1, r = n - 2;
+    int leftMax = a[0], rightMax = a[n - 1];
+    int storage = 0;
+    while (l <= r)
+    {
+        if (leftMax < rightMax)
+        {
+
+            if (a[i] >= leftMax)
+            {
+                //cannot store as you are the newmax(height)
+                leftMax = a[i];
+            }
+            else
+            {
+                storage += (leftMax - a[i]);
+            }
+            l++;
+        }
+        else
+        {
+            if (a[i] > rightMax)
+            {
+                rightMax = a[i];
+            }
+            else
+            {
+                storage += (rightMax - a[i]);
+            }
+            r--;
+        }
+    }
+    return storage;
+}

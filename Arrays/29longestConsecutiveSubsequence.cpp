@@ -1,7 +1,38 @@
 #include <iostream>
+#include <climits>
+
 #include <unordered_set>
 
 using namespace std;
+
+int findLCS(int a[], int n)
+{
+    //Your code here
+    unordered_map<int, int> s;
+    int result = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        s[a[i]]++;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+
+        if (s.find(a[i] - 1) == s.end())
+        {
+            int currentElement = a[i];
+            int count = 0;
+
+            while (s.find(currentElement) != s.end())
+            {
+                currentElement++;
+                count++;
+            }
+            result = max(result, count);
+        }
+    }
+    return result;
+}
 
 int findLongestConseqSubseq(int a[], int n)
 {
@@ -14,7 +45,6 @@ int findLongestConseqSubseq(int a[], int n)
     int ans = 0;
     for (int i = 0; i < n; i++)
     {
-
         // You searched for previous element, if its not found the next to last element pointer is
         // returned
         if (s.find(a[i] - 1) == s.end())
