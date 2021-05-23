@@ -16,7 +16,6 @@ bool helper2(int i, int j, int m, int n, vector<vector<char>> &grid, string word
     int len = word.length();
     for (int direction = 0; direction < 8; direction++)
     {
-
         int k;
         int row = i + x[direction];
         int col = j + y[direction];
@@ -44,36 +43,36 @@ bool helper2(int i, int j, int m, int n, vector<vector<char>> &grid, string word
 
 helper() - Gives wrong output for zig zag pattern
 */
-bool helper(int i, int j, int m, int n, vector<vector<char>> &grid, string word, int size, int idx)
-{
-    // int found = 0;
-    bool found = false;
-    if (i >= 0 && j >= 0 && i < m && j < n && grid[i][j] == word[idx])
-    {
-        // cout << "Enter " << i << " " << j << endl;
-        char temp = grid[i][j];
-        grid[i][j] = '0';
+// bool helper(int i, int j, int m, int n, vector<vector<char>> &grid, string word, int size, int idx)
+// {
+//     // int found = 0;
+//     bool found = false;
+//     if (i >= 0 && j >= 0 && i < m && j < n && grid[i][j] == word[idx])
+//     {
+//         // cout << "Enter " << i << " " << j << endl;
+//         char temp = grid[i][j];
+//         grid[i][j] = '0';
 
-        idx++;
-        if (idx >= size)
-            found = true;
-        else
-        {
-            found = found ||
-                    helper(i, j + 1, m, n, grid, word, size, idx) ||
-                    helper(i + 1, j + 1, m, n, grid, word, size, idx) ||
-                    helper(i + 1, j, m, n, grid, word, size, idx) ||
-                    helper(i + 1, j - 1, m, n, grid, word, size, idx) ||
-                    helper(i, j - 1, m, n, grid, word, size, idx) ||
-                    helper(i - 1, j - 1, m, n, grid, word, size, idx) ||
-                    helper(i - 1, j + 1, m, n, grid, word, size, idx) ||
-                    helper(i - 1, j, m, n, grid, word, size, idx);
-        }
-        grid[i][j] = temp;
-        // cout << "Rewritten" << endl;
-    }
-    return found;
-}
+//         idx++;
+//         if (idx >= size)
+//             found = true;
+//         else
+//         {
+//             found = found ||
+//                     helper(i, j + 1, m, n, grid, word, size, idx) ||
+//                     helper(i + 1, j + 1, m, n, grid, word, size, idx) ||
+//                     helper(i + 1, j, m, n, grid, word, size, idx) ||
+//                     helper(i + 1, j - 1, m, n, grid, word, size, idx) ||
+//                     helper(i, j - 1, m, n, grid, word, size, idx) ||
+//                     helper(i - 1, j - 1, m, n, grid, word, size, idx) ||
+//                     helper(i - 1, j + 1, m, n, grid, word, size, idx) ||
+//                     helper(i - 1, j, m, n, grid, word, size, idx);
+//         }
+//         grid[i][j] = temp;
+//         // cout << "Rewritten" << endl;
+//     }
+//     return found;
+// }
 
 int main()
 {
@@ -101,7 +100,7 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-            if (helper(i, j, m, n, grid, word, word.length(), 0))
+            if (helper2(i, j, m, n, grid, word, word.length(), 0))
             {
                 vector<int> small;
                 small.push_back(i);

@@ -1,8 +1,33 @@
 #include <iostream>
 using namespace std;
+// k = 0
+// iamstrongacbcahhihhabbacbaabc
+/**
+ * k = 0
+ * Even length palindrome
+ * ....(char)(char)....
+ * input : strongacbcahha
+ * k = 11 left=10 right=12
+ * countEven = 4
+ * if(input[k] == input[k+1]) palindromeLength = 2
+ * 
+ *  if(input[left] == input[right])
+ *  while(left >= 0 && right < n && input[left] == input[right] )
+ *  left--; right++;
+ * 
+ * odd length palindrome
+ * jfhdfhj abbba hgtughutgh countOdd = 5
+ * 
+ * k == k + 2 ---->
+ * 
+ * 
+ * return max(countEven,countOdd)
+*/
 
+// k =0 , k+ 1 .....aa....
 void findLongestPalindrome(string s)
 {
+    //abcd
 
     int l, h;
     int start = 0, palinLength = 1; //there is min 1 length palindrome
@@ -12,6 +37,7 @@ void findLongestPalindrome(string s)
         Check for even length palindrome
         checking adjacent characters
         */
+        // abcdabcd
         l = i - 1;
         h = i;
         while (l >= 0 && h < s.length() && s[l] == s[h])

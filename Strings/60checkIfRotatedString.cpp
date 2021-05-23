@@ -4,8 +4,48 @@ using namespace std;
 using namespace std;
 
 /*
-Methods to check substring 
+Method : To concatinate the source string to itself
+        Check if the target string is a substring of the above string
+        tHEN IT IS a valid rotation of the given substring    
+
 */
+
+int substring(string s, string t)
+{
+    int i = 0;
+    int k = 0;
+
+    //i = 0, k = 0,
+    while (i < t.length()) // 2 || i = 2
+    {
+        //  ABCDEGEF   EF
+        if (k == s.length()) // 8 || k = 8
+            break;
+
+        else if (s[k] == t[i])
+        {
+            i++;
+            k++;
+        }
+        else
+        {
+            i = 0;
+            k++;
+        }
+    }
+
+    if (k == = s.length() && i < t.length())
+    {
+        return 0;
+    }
+
+    return 1;
+}
+int findIfRotations(string s, string t)
+{
+    string target = s + s;
+    return substring(target, t);
+}
 int method0(string s1, string s2)
 {
     int M = s1.length();

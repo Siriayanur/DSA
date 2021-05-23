@@ -1,16 +1,14 @@
 #include <iostream>
 using namespace std;
-
+//https://www.programiz.com/java-programming/examples/check-valid-shuffle-of-strings
 bool shuffleCheck(string first, string second, string result)
 {
 
-    // check length of result is same as
-    // sum of result of first and second
     if (first.length() + second.length() != result.length())
     {
         return false;
     }
-    // variables to track each character of 3 strings
+
     int i = 0, j = 0, k = 0;
 
     // iterate through all characters of result
@@ -18,11 +16,11 @@ bool shuffleCheck(string first, string second, string result)
     {
 
         // check if first character of result matches with first character of first string
-        if (i < first.length() && first.charAt(i) == result.charAt(k))
+        if (i < first.length() && first[i] == result[k])
             i++;
 
         // check if first character of result matches the first character of second string
-        else if (j < second.length() && second.charAt(j) == result.charAt(k))
+        else if (j < second.length() && second[j] == result[k])
             j++;
 
         // if the character doesn't match
@@ -47,4 +45,10 @@ bool shuffleCheck(string first, string second, string result)
 
 int main()
 {
+    string s1 = "XY";
+    string s2 = "12";
+    string res = "1XY2";
+    string res2 = "Y12X";
+    cout << shuffleCheck(s1, s2, res) << endl;
+    cout << shuffleCheck(s1, s2, res2) << endl;
 }

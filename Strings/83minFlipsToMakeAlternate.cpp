@@ -4,33 +4,31 @@ using namespace std;
 int minFlips(string S)
 {
     // your code here
-    int pattern1 = 0; // 0101010101
-    int pattern2 = 0;
+    // Try to populate the string to generate both the sequences
+    // And only return min(both ways)
 
-    int i = 0, j = 1;
-    while (i < S.length() || j < S.length())
+    //If you were to generate the sequence 01010101...
+
+    int flips = 0;
+    for (int i = 0; i < S.length(); i++)
     {
-        if (S[i] != '0' && i < S.length())
-            pattern1++;
-        if (S[j] != '1' && j < S.length())
-            pattern1++;
+        if (i % 2 == 0)
+            if (S[i] != '0') //0 at even position
+                flips++;
 
-        i += 2;
-        j += 2;
+            else if (S[i] != '1') // 1 at odd position
+                flips++;
     }
 
-    i = 1;
-    j = 0;
-
-    while (i < S.length() || j < S.length())
+    int flips2 = 0;
+    for (int i = 0; i < S.length(); i++)
     {
-        if (S[i] != '0' && i < S.length())
-            pattern2++;
-        if (S[j] != '1' && j < S.length())
-            pattern2++;
-        i += 2;
-        j += 2;
-    }
+        if (i % 2 == 0)
+            if (S[i] != '1') //0 at odd position
+                flips2++;
 
-    return min(pattern1, pattern2);
+            else if (S[i] != '0') //1 at even position
+                flips2++;
+    }
+    return min(flips, flips2);
 }
