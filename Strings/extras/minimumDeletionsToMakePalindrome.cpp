@@ -1,11 +1,12 @@
-// abbcd
+#include <iostream>
+using namespace std;
 
 class Solution
 {
 public:
-    int lcs(string a, string b)
+    int lcs(string s, string r)
     {
-        int m = a.length(), n = b.length();
+        int m = s.length(), n = r.length();
         int t[m + 1][n + 1];
         for (int i = 0; i <= m; i++)
             t[i][0] = 0;
@@ -16,8 +17,10 @@ public:
         {
             for (int j = 1; j <= n; j++)
             {
-                if (a[i - 1] == b[j - 1] && i != j)
+                if (s[i - 1] == r[j - 1])
+                {
                     t[i][j] = 1 + t[i - 1][j - 1];
+                }
                 else
                 {
                     t[i][j] = max(t[i - 1][j], t[i][j - 1]);
@@ -26,9 +29,12 @@ public:
         }
         return t[m][n];
     }
-    int LongestRepeatingSubsequence(string str)
+
+    int minimumNumberOfDeletions(string s)
     {
-        // Code here
-        return lcs(str, str);
+        // code here
+        string r = s;
+        reverse(s.begin(), s.end());
+        return s.length() - lcs(s, r);
     }
 };
